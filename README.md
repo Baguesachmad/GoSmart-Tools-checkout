@@ -12,7 +12,7 @@
 </a>
 
 
-<a href="[https://baguesachmad.github.io/GoSmart-Tools-checkout/](https://github.com/Baguesachmad/GoSmart-Tools-checkout)">
+<a href="https://github.com/Baguesachmad/GoSmart-Tools-checkout">
   <img src="https://img.shields.io/badge/🗂_file-Visit-red?style=for-the-badge" alt="File" />
 </a>
 
