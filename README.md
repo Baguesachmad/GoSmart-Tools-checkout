@@ -1,101 +1,55 @@
 <div align="center">
 
-# 🛒 GoSmart Tools Checkout
+<h1>🛒 GoSmart Tools Checkout</h1>
+<p><strong>Lightweight Static Checkout System</strong></p>
 
-### Lightweight Static Checkout System
+<br/>
 
+<a href="https://baguesachmad.github.io/GoSmart-Tools-checkout/">
+  <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit-blue?style=for-the-badge" alt="Live Demo"/>
+</a>
 
+<a href="https://gosmartallinone.blogspot.com/?m=1">
+  <img src="https://img.shields.io/badge/📰_Blog_Integration-View-orange?style=for-the-badge" alt="Blog Demo"/>
+</a>
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit-blue?style=for-the-badge)](https://baguesachmad.github.io/GoSmart-Tools-checkout/)
+<br/><br/>
 
-[![Blog Demo](https://img.shields.io/badge/📰_Blog_Integration-View-orange?style=for-the-badge)](https://gosmartallinone.blogspot.com/?m=1)
+<img src="https://img.shields.io/badge/HTML5-Structure-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+<img src="https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+<img src="https://img.shields.io/badge/JavaScript-Logic-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License"/>
 
-![HTML](https://img.shields.io/badge/HTML5-Structure-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-
-![CSS](https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-![JavaScript](https://img.shields.io/badge/JavaScript-Logic-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-
-
----
-
-# 📌 Overview
-
-**GoSmart Tools Checkout** adalah sistem checkout ringan berbasis static web yang memungkinkan integrasi pembelian digital tanpa backend.
-
-Dirancang untuk:
-
-- Digital product seller  
-- Blogger monetization  
-- Static landing page  
-- Micro SaaS experiment  
+</div>
 
 ---
 
-# 🚀 Live Deployment
+## 🚀 Overview
 
-| Environment | Link |
-|------------|------|
-| GitHub Pages | https://baguesachmad.github.io/GoSmart-Tools-checkout/ |
-| Blog Integration | https://gosmartallinone.blogspot.com/?m=1 |
+GoSmart Tools Checkout adalah sistem checkout berbasis static web yang ringan dan mudah diintegrasikan ke blog maupun landing page.
 
 ---
 
-# ✨ Features
+## 🌐 Live Demo
 
-[![Add to Cart](https://img.shields.io/badge/Feature-Add_to_Cart-success?style=flat-square)]
-
-[![Cart Page](https://img.shields.io/badge/Feature-Cart_Page-success?style=flat-square)]
-
-[![LocalStorage](https://img.shields.io/badge/Storage-LocalStorage-blue?style=flat-square)]
-
-[![Responsive](https://img.shields.io/badge/UI-Responsive-lightgrey?style=flat-square)]
-
-[![Redirect Checkout](https://img.shields.io/badge/Checkout-Redirect-orange?style=flat-square)]
-
-✔ Add product to cart  
-✔ Remove item  
-✔ Clear cart  
-✔ Auto total calculation  
-✔ Client-side storage  
-✔ Embed ready  
+- GitHub Pages: https://baguesachmad.github.io/GoSmart-Tools-checkout/
+- Blog Demo: https://gosmartallinone.blogspot.com/?m=1
 
 ---
 
-# 🧠 How It Works
+## ✨ Features
 
-```
-User Click
-   ↓
-Add To Cart
-   ↓
-LocalStorage
-   ↓
-Cart Page
-   ↓
-Checkout Redirect
-```
-
-Fully client-side architecture.
+- Add to Cart  
+- Cart Page  
+- Remove Item  
+- Clear Cart  
+- LocalStorage Persistence  
+- Responsive Layout  
+- Ready for Payment Redirect  
 
 ---
 
-# 🛠 Tech Stack
-
-| Technology | Usage |
-|------------|--------|
-| HTML5 | Structure |
-| CSS3 | UI Styling |
-| Vanilla JS | Business Logic |
-| LocalStorage | Client Storage |
-| GitHub Pages | Hosting |
-
----
-
-# 📁 Project Structure
+## 📁 Project Structure
 
 ```
 GoSmart-Tools-checkout/
@@ -109,50 +63,6 @@ GoSmart-Tools-checkout/
 
 ---
 
-# 🔗 Embed Example
-
-```
-<iframe 
-  src="https://baguesachmad.github.io/GoSmart-Tools-checkout/"
-  style="width:100%;height:800px;border:none;">
-</iframe>
-```
-
----
-
-# 🔒 Security Notes
-
-⚠ This system runs fully client-side.
-
-Recommended for production upgrade:
-
-- Payment gateway verification  
-- Server-side validation  
-- Transaction tokenization  
-
----
-
-# 📈 Roadmap
-
-- [ ] Payment gateway automation  
-- [ ] Invoice generator  
-- [ ] WhatsApp notification  
-- [ ] Multi-product dynamic system  
-- [ ] Admin dashboard  
-
----
-
-# 📄 License
+## 📄 License
 
 MIT License
-
-Free to use, modify, and distribute.
-
----
-
-<div align="center">
-
-### GoSmart Tools Checkout  
-Simple • Static • Ready to Integrate
-
-</div>
