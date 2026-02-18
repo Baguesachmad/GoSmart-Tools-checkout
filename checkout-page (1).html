@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - GoSmart Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        /* Checkout Layout */
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .checkout-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .checkout-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 18px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .required {
+            color: #ff6b6b;
+        }
+        
+        /* Order Summary */
+        .order-summary {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .order-summary h3 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .order-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        
+        .order-item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .order-item-info {
+            flex: 1;
+        }
+        
+        .order-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .order-item-price {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 2px solid #eee;
+            color: #667eea;
+        }
+        
+        /* Payment Info */
+        .payment-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .payment-info h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .bank-account {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .bank-account strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .bank-account p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .copy-btn {
+            background: #667eea;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .copy-btn:hover {
+            background: #5568d3;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .instructions h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            color: #856404;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: #fff;
+            margin-top: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-message h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🛒 Checkout - GoSmart Tools</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="checkout-container">
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h2>Informasi Pemesanan</h2>
+                
+                <form id="checkoutForm">
+                    <!-- Personal Info -->
+                    <div class="form-section">
+                        <h3>Data Pribadi</h3>
+                        
+                        <div class="form-group">
+                            <label>Nama Lengkap <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Masukkan nama lengkap Anda">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>No. WhatsApp <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="08xxxxxxxxxx">
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <h3>Metode Pembayaran</h3>
+                        
+                        <div class="form-group">
+                            <label>Pilih Bank <span class="required">*</span></label>
+                            <select id="bankChoice" name="bankChoice" required>
+                                <option value="">-- Pilih Bank --</option>
+                                <option value="BCA">BCA - 1234567890</option>
+                                <option value="Mandiri">Mandiri - 0987654321</option>
+                                <option value="BNI">BNI - 1122334455</option>
+                                <option value="BRI">BRI - 5544332211</option>
+                            </select>
+                        </div>
+                        
+                        <div class="payment-info">
+                            <h4>📋 Informasi Rekening Tujuan</h4>
+                            
+                            <div class="bank-account">
+                                <strong>Bank BCA</strong>
+                                <p>No. Rekening: <strong>1234567890</strong></p>
+                                <p>Atas Nama: <strong>PT GoSmart Tools</strong></p>
+                                <button type="button" class="copy-btn" onclick="copyText('1234567890')">Salin Nomor</button>
+                            </div>
+                            
+                            <div class="bank-account">
+                                <strong>Bank Mandiri</strong>
+                                <p>No. Rekening: <strong>0987654321</strong></p>
+                                <p>Atas Nama: <strong>PT GoSmart Tools</strong></p>
+                                <button type="button" class="copy-btn" onclick="copyText('0987654321')">Salin Nomor</button>
+                            </div>
+                            
+                            <div class="bank-account">
+                                <strong>Bank BNI</strong>
+                                <p>No. Rekening: <strong>1122334455</strong></p>
+                                <p>Atas Nama: <strong>PT GoSmart Tools</strong></p>
+                                <button type="button" class="copy-btn" onclick="copyText('1122334455')">Salin Nomor</button>
+                            </div>
+                            
+                            <div class="bank-account">
+                                <strong>Bank BRI</strong>
+                                <p>No. Rekening: <strong>5544332211</strong></p>
+                                <p>Atas Nama: <strong>PT GoSmart Tools</strong></p>
+                                <button type="button" class="copy-btn" onclick="copyText('5544332211')">Salin Nomor</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Notes -->
+                    <div class="form-section">
+                        <h3>Catatan Tambahan (Opsional)</h3>
+                        <div class="form-group">
+                            <label>Catatan Pesanan</label>
+                            <textarea id="notes" name="notes" placeholder="Tambahkan catatan untuk pesanan Anda (opsional)"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h4>⚠️ Instruksi Pembayaran:</h4>
+                        <ol>
+                            <li>Transfer sesuai dengan <strong>TOTAL YANG HARUS DIBAYAR</strong></li>
+                            <li>Simpan bukti transfer Anda</li>
+                            <li>Klik tombol "Pesan Sekarang" di bawah</li>
+                            <li>Anda akan diarahkan ke WhatsApp untuk konfirmasi</li>
+                            <li>Kirim bukti transfer via WhatsApp</li>
+                            <li>Tunggu konfirmasi dari admin (maks. 1x24 jam)</li>
+                            <li>Tools akan dikirim ke email Anda setelah pembayaran dikonfirmasi</li>
+                        </ol>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        💳 Pesan Sekarang via WhatsApp
+                    </button>
+                    
+                    <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                        ← Kembali ke Toko
+                    </button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <h3>✅ Pesanan Berhasil Dibuat!</h3>
+                    <p>Anda akan segera diarahkan ke WhatsApp untuk konfirmasi pembayaran.</p>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>Ringkasan Pesanan</h3>
+                <div id="orderItems"></div>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rp0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Biaya Admin:</span>
+                    <span>Rp0</span>
+                </div>
+                
+                <div class="summary-total">
+                    <span>Total Bayar:</span>
+                    <span id="grandTotal">Rp0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('gosmartCart')) || [];
+        
+        // Display order items
+        function displayOrderItems() {
+            const orderItems = document.getElementById('orderItems');
+            const subtotalEl = document.getElementById('subtotal');
+            const grandTotalEl = document.getElementById('grandTotal');
+            
+            if (cart.length === 0) {
+                orderItems.innerHTML = '<p style="text-align: center; color: #999;">Keranjang kosong</p>';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const priceNum = parseInt(item.price.replace(/[^0-9]/g, ''));
+                if (!isNaN(priceNum)) {
+                    total += priceNum;
+                }
+                
+                html += `
+                    <div class="order-item">
+                        <img src="${item.image}" alt="${item.title}" class="order-item-image">
+                        <div class="order-item-info">
+                            <div class="order-item-title">${item.title}</div>
+                            <div class="order-item-price">${item.price}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            orderItems.innerHTML = html;
+            subtotalEl.textContent = 'Rp' + total.toLocaleString('id-ID');
+            grandTotalEl.textContent = 'Rp' + total.toLocaleString('id-ID');
+        }
+        
+        // Copy text to clipboard
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Nomor rekening berhasil disalin!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const input = document.createElement('input');
+                input.value = text;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                alert('Nomor rekening berhasil disalin!');
+            });
+        }
+        
+        // Handle form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const bankChoice = document.getElementById('bankChoice').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Calculate total
+            let total = 0;
+            let itemsList = '';
+            cart.forEach((item, index) => {
+                const priceNum = parseInt(item.price.replace(/[^0-9]/g, ''));
+                if (!isNaN(priceNum)) {
+                    total += priceNum;
+                }
+                itemsList += `${index + 1}. ${item.title} - ${item.price}\n`;
+            });
+            
+            // Create WhatsApp message
+            const message = `
+🛒 *PESANAN BARU - GOSMART TOOLS*
+
+👤 *Data Pembeli:*
+Nama: ${fullName}
+Email: ${email}
+No. HP: ${phone}
+
+💳 *Pembayaran:*
+Bank Tujuan: ${bankChoice}
+
+📦 *Pesanan:*
+${itemsList}
+
+💰 *Total: Rp${total.toLocaleString('id-ID')}*
+
+📝 *Catatan:*
+${notes || '-'}
+
+---
+Saya akan segera melakukan transfer dan mengirimkan bukti pembayaran.
+            `.trim();
+            
+            // ⚠️ PENTING: Ganti dengan nomor WhatsApp Anda!
+            // Format: 62xxx (tanpa + dan tanpa 0 di awal)
+            // Contoh: 081234567890 → 6281234567890
+            const waNumber = '6281234567890'; // ⬅️ GANTI NOMOR INI!
+            const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Clear cart
+            localStorage.removeItem('gosmartCart');
+            
+            // Redirect to WhatsApp after 2 seconds
+            setTimeout(() => {
+                window.open(waURL, '_blank');
+                setTimeout(() => {
+                    window.location.href = '/'; // Redirect to homepage
+                }, 1000);
+            }, 2000);
+        });
+        
+        // Initialize
+        displayOrderItems();
+        
+        // Prevent leaving with items in cart
+        if (cart.length === 0) {
+            alert('Keranjang belanja kosong!');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
